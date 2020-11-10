@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import {connect} from 'react-redux';
+import {addNewPerson} from '../actions/person-actions';
 
-const PersonForm = () => {
+const PersonForm = ({addPerson}) => {
 
     const [state, setState] = useState({
         firstname: '',
@@ -13,7 +15,8 @@ const PersonForm = () => {
 
     const submitHandler = (evt) => {
         evt.preventDefault();
-        alert(JSON.stringify(state));
+        // alert(JSON.stringify(state));
+        addPerson(state);
         setState({
             firstname: '',
             lastname: '',
@@ -120,4 +123,4 @@ const PersonForm = () => {
     </>;
 };
 
-export default PersonForm;
+export default connect(null, {addPerson: addNewPerson})(PersonForm);
