@@ -123,4 +123,7 @@ const PersonForm = ({addPerson}) => {
     </>;
 };
 
+// params for connect:
+// 1. state from store
+// 2. action methods
 export default connect(null, {addPerson: addNewPerson})(PersonForm);
